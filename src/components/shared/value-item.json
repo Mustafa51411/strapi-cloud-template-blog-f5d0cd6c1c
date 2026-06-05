@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_value_items",
+  "info": {
+    "displayName": "Value Card",
+    "icon": "check-circle",
+    "description": "Small value card with title and description"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

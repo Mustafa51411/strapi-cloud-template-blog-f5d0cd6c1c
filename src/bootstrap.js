@@ -47,10 +47,20 @@ async function setPublicPermissions(newPermissions) {
   const allPermissionsToCreate = [];
   Object.keys(newPermissions).map((controller) => {
     const actions = newPermissions[controller];
-    const permissionsToCreate = actions.map((action) => {
+    const permissionsToCreate = actions.map(async (action) => {
+      const permissionAction = `api::${controller}.${controller}.${action}`;
+      const existingPermission = await strapi.query('plugin::users-permissions.permission').findOne({
+        where: {
+          action: permissionAction,
+          role: publicRole.id,
+        },
+      });
+
+      if (existingPermission) return existingPermission;
+
       return strapi.query('plugin::users-permissions.permission').create({
         data: {
-          action: `api::${controller}.${controller}.${action}`,
+          action: permissionAction,
           role: publicRole.id,
         },
       });
@@ -270,5 +280,11 @@ async function main() {
 
 
 module.exports = async () => {
+  await setPublicPermissions({
+    'about-page': ['find', 'findOne'],
+    'contact-page': ['find', 'findOne'],
+    'faq-page': ['find', 'findOne'],
+    'reviews-page': ['find', 'findOne'],
+  });
   await seedExampleApp();
 };

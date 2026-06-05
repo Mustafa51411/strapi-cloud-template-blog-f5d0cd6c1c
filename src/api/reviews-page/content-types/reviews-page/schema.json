@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "reviews_pages",
+  "info": {
+    "singularName": "reviews-page",
+    "pluralName": "reviews-pages",
+    "displayName": "Reviews Page",
+    "description": "Client-editable content for the Reviews page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.hero"
+    },
+    "reviewIntro": {
+      "type": "text"
+    },
+    "reviewCtaLabel": {
+      "type": "string"
+    }
+  }
+}

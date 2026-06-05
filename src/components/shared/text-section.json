@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shared_text_sections",
+  "info": {
+    "displayName": "Text Section",
+    "icon": "align-left",
+    "description": "Reusable page section with text and image"
+  },
+  "options": {},
+  "attributes": {
+    "kicker": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "text"
+    },
+    "body2": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}
